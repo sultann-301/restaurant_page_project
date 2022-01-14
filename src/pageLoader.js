@@ -11,7 +11,7 @@ function loadTabMenu() {
   //div container to store tabs
   const tabContainer = document.createElement("div");
   tabContainer.classList.add("container");
-  tabContainer.setAttribute("id", "Hello u found me");
+  tabContainer.setAttribute("id", "tabDiv");
   // making button group
   const buttonGroupDIV = document.createElement("div");
   buttonGroupDIV.classList.add("btn-group");
@@ -20,27 +20,34 @@ function loadTabMenu() {
   // making each button
   const aboutBtn = document.createElement("button");
   aboutBtn.setAttribute("type", "button");
+  aboutBtn.setAttribute("id", "aboutBtn");
+
   aboutBtn.classList.add("btn", "btn-outline-primary", "tab");
   aboutBtn.innerText = "About";
 
   const menuBtn = document.createElement("button");
   menuBtn.setAttribute("type", "button");
+  menuBtn.setAttribute("id", "menuBtn");
+
   menuBtn.classList.add("btn", "btn-outline-primary", "tab");
   menuBtn.innerText = "Menu";
 
   const contactBtn = document.createElement("button");
   contactBtn.setAttribute("type", "button");
+  contactBtn.setAttribute("id", "contactBtn");
   contactBtn.classList.add("btn", "btn-outline-primary", "tab");
   contactBtn.innerText = "Contact Us";
 
   //add each button to the btn group
-  buttonGroupDIV.append(aboutBtn, menuBtn, contactBtn);
+  buttonGroupDIV.appendChild(aboutBtn);
+  buttonGroupDIV.appendChild(menuBtn);
+  buttonGroupDIV.appendChild(contactBtn);
 
   //add the group to .container
-  tabContainer.append(buttonGroupDIV);
+  tabContainer.appendChild(buttonGroupDIV);
 
   //return the tabcontainer to append inside the loadPage function()
-  //return tabContainer;
+  return tabContainer;
 }
 
 /* <div class="btn-group" role="group" aria-label="Basic example">
@@ -97,11 +104,11 @@ function pageLoader() {
 
   //FINALLY, append container and h1 to content!
   // make TabMenu to also append to content div
-  const tabMenu = loadTabMenu();
   contentDIV.appendChild(h1);
+  const tabMenu = loadTabMenu();
   contentDIV.appendChild(tabMenu);
 
   contentDIV.appendChild(containerDiv);
 }
 
-module.exports = pageLoader();
+export { pageLoader, loadTabMenu };

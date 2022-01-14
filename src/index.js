@@ -1,4 +1,4 @@
-import { pageLoader as loadPage } from "./pageLoader";
+import { pageLoader as loadPage, loadTabMenu } from "./pageLoader";
 
 alert("webpack did its thing!!");
 //webpackTest();
