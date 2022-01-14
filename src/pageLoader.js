@@ -97,9 +97,9 @@ function pageLoader() {
 
   //FINALLY, append container and h1 to content!
   // make TabMenu to also append to content div
-  const TabMenu = loadTabMenu();
+  const tabMenu = loadTabMenu();
   contentDIV.appendChild(h1);
-  contentDIV.appendChild(TabMenu);
+  contentDIV.appendChild(tabMenu);
 
   contentDIV.appendChild(containerDiv);
 }
