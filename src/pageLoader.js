@@ -23,18 +23,18 @@ function loadTabMenu() {
   aboutBtn.classList.add("btn", "btn-outline-primary", "tab");
   aboutBtn.innerText = "About";
 
-  const MenuBtn = document.createElement("button");
-  MenuBtn.setAttribute("type", "button");
-  MenuBtn.classList.add("btn", "btn-outline-primary", "tab");
-  MenuBtn.innerText = "Menu";
+  const menuBtn = document.createElement("button");
+  menuBtn.setAttribute("type", "button");
+  menuBtn.classList.add("btn", "btn-outline-primary", "tab");
+  menuBtn.innerText = "Menu";
 
-  const ContactBtn = document.createElement("button");
-  ContactBtn.setAttribute("type", "button");
-  ContactBtn.classList.add("btn", "btn-outline-primary", "tab");
-  ContactBtn.innerText = "Contact Us";
+  const contactBtn = document.createElement("button");
+  contactBtn.setAttribute("type", "button");
+  contactBtn.classList.add("btn", "btn-outline-primary", "tab");
+  contactBtn.innerText = "Contact Us";
 
   //add each button to the btn group
-  buttonGroupDIV.append(aboutBtn, MenuBtn, ContactBtn);
+  buttonGroupDIV.append(aboutBtn, menuBtn, contactBtn);
 
   //add the group to .container
   tabContainer.append(buttonGroupDIV);
