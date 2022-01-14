@@ -7,6 +7,50 @@ function webpackTest() {
   contentDIV.appendChild(h1);
 }
 
+function loadTabMenu() {
+  //div container to store tabs
+  const tabContainer = document.createElement("div");
+  tabContainer.classList.add("container");
+  tabContainer.setAttribute("id", "Hello u found me");
+  // making button group
+  const buttonGroupDIV = document.createElement("div");
+  buttonGroupDIV.classList.add("btn-group");
+  buttonGroupDIV.setAttribute("role", "group");
+  buttonGroupDIV.setAttribute("aria-label", "Basic example");
+  // making each button
+  const aboutBtn = document.createElement("button");
+  aboutBtn.setAttribute("type", "button");
+  aboutBtn.classList.add("btn", "btn-outline-primary", "tab");
+  aboutBtn.innerText = "About";
+
+  const MenuBtn = document.createElement("button");
+  MenuBtn.setAttribute("type", "button");
+  MenuBtn.classList.add("btn", "btn-outline-primary", "tab");
+  MenuBtn.innerText = "Menu";
+
+  const ContactBtn = document.createElement("button");
+  ContactBtn.setAttribute("type", "button");
+  ContactBtn.classList.add("btn", "btn-outline-primary", "tab");
+  ContactBtn.innerText = "Contact Us";
+
+  //add each button to the btn group
+  buttonGroupDIV.append(aboutBtn, MenuBtn, ContactBtn);
+
+  //add the group to .container
+  tabContainer.append(buttonGroupDIV);
+
+  //return the tabcontainer to append inside the loadPage function()
+  //return tabContainer;
+}
+
+/* <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary tab">About</button>
+        <button type="button" class="btn btn-outline-primary tab">Menu</button>
+        <button type="button" class="btn btn-outline-primary tab">
+          Contact Us
+        </button>
+      </div> */
+
 function pageLoader() {
   //making h1
   const h1 = document.createElement("h1");
@@ -40,8 +84,7 @@ function pageLoader() {
   imageDIV.classList.add("col-6");
   const chef_hat = document.createElement("img");
   chef_hat.classList.add("img-fluid", "chef-hat");
-  chef_hat.src =
-    "https://cdn-icons.flaticon.com/png/512/883/premium/883625.png?token=exp=1642114186~hmac=3b5077ec28652536c5ec3bddbdf8761b";
+  chef_hat.src = "http://www.mcicon.com/wp-content/uploads/2021/04/Chef-06.jpg";
   chef_hat.alt = "chef hat image";
   // append contents to image DIV
   imageDIV.append(chef_hat);
@@ -53,30 +96,12 @@ function pageLoader() {
   containerDiv.append(row);
 
   //FINALLY, append container and h1 to content!
+  // make TabMenu to also append to content div
+  const TabMenu = loadTabMenu();
   contentDIV.appendChild(h1);
-  contentDIV.appendChild(containerDiv);
-}
+  contentDIV.appendChild(TabMenu);
 
-{
-  /* <h1 class="display-1 mainTitle">Le Chad Restaurant</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <h2 class="display-5 subTitle">Our Goal</h2>
-      <p class="lead hero-p">
-        We are a restaurant devoted to serving our customers with the most
-        chad menu items.
-      </p>
-    </div>
-    <div class="col-6">
-      <img
-        class="img-fluid chef-hat"
-        src="https://cdn-icons.flaticon.com/png/512/883/premium/883625.png?token=exp=1642114186~hmac=3b5077ec28652536c5ec3bddbdf8761b"
-        alt="chef hat image"
-      />
-    </div>
-  </div>
-</div> */
+  contentDIV.appendChild(containerDiv);
 }
 
 module.exports = pageLoader();
